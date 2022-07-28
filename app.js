@@ -9,7 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-const mongoDB = 'connectionUrl';
+const mongoDB = 'mongodb+srv://inventoryApp:inventory1234@cluster0.ldpbuhj.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true})
 
 const db = mongoose.connect;
