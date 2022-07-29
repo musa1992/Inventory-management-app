@@ -6,13 +6,13 @@ var logger = require('morgan');
 const mongoose = require('mongoose')
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const categoryRouter = require('./routes/categoryRoute')
 
 var app = express();
 const mongoDB = 'mongodb+srv://inventoryApp:inventory1234@cluster0.ldpbuhj.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true})
 
-const db = mongoose.connect;
+const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'mongoDb connection error'))
 
@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/category', categoryRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
