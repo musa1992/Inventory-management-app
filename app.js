@@ -8,6 +8,7 @@ const mongoose = require('mongoose')
 var indexRouter = require('./routes/index');
 const categoryRouter = require('./routes/categoryRoute')
 const metricRouter = require('./routes/metricRoute')
+const itemRouter = require('./routes/itemRoute')
 
 var app = express();
 const mongoDB = 'mongodb+srv://inventoryApp:inventory1234@cluster0.ldpbuhj.mongodb.net/?retryWrites=true&w=majority';
@@ -29,7 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/category', categoryRouter);
-app.use('/metric', metricRouter)
+app.use('/metric', metricRouter);
+app.use('/items', itemRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
